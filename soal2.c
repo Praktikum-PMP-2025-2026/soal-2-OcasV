@@ -70,6 +70,7 @@ void sortDoubleList(Node *List1, int N1, Node *List2, int N2, Node *result) {
 }
 
 void printList(Node *head, int N) {
+    printf("MERGED ");
     for (int i=0; i<N; i++) {
         if (head == NULL) {
             printf("null\n");
