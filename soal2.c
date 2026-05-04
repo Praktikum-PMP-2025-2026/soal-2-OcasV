@@ -60,10 +60,10 @@ void sortDoubleList(Node *List1, int N1, Node *List2, int N2, Node *result, int 
     *NResult = N1 + N2;
 
     for (int i=0; i<N1+N2; i++) {
-        if (List1 == NULL) {
+        if (List1 == NULL || N1 == 0) {
             result->data = List2->data;
             List2 = List2->next;
-        } else if (List2 == NULL) {
+        } else if (List2 == NULL || N2 == 0) {
             result->data = List1->data;
             List1 = List1->next;
         } else if (List1->data < List2->data) {
