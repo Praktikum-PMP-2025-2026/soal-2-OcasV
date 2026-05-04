@@ -10,6 +10,11 @@ void inputList(Node *head, int *size) {
     int N;
     scanf("%d", &N);
     *size = N;
+    if (N == 0) {
+        head = NULL;
+        return;
+    }
+
     Node *HeadList = head;
     
     for (int i=0; i<N; i++) {
@@ -45,6 +50,10 @@ void sortList(Node *list, int N) {
 }
 
 void sortDoubleList(Node *List1, int N1, Node *List2, int N2, Node *result) {
+    if (List1 == NULL && List2 == NULL) {
+        result == NULL;
+    }
+
     for (int i=0; i<N1+N2; i++) {
         if (List1 == NULL) {
             result->data = List2->data;
