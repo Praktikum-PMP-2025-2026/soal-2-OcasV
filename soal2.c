@@ -11,7 +11,6 @@ void inputList(Node *head, int *size) {
     scanf("%d", &N);
     *size = N;
     if (N == 0) {
-        head = NULL;
         return;
     }
 
@@ -31,8 +30,7 @@ void inputList(Node *head, int *size) {
 }
 
 void sortList(Node *list, int N) {
-    if (list == NULL) {
-        printf("Null");
+    if (N == 0) {
         return;
     }
 
@@ -54,11 +52,12 @@ void sortList(Node *list, int N) {
     }
 }
 
-void sortDoubleList(Node *List1, int N1, Node *List2, int N2, Node *result) {
-    if (List1 == NULL && List2 == NULL) {
-        printf("Null");
-        result = NULL;
+void sortDoubleList(Node *List1, int N1, Node *List2, int N2, Node *result, int *NResult) {
+    if (N1 == 0 && N2 == 0) {
+        *NResult = 0;
     }
+
+    *NResult = N1 + N2;
 
     for (int i=0; i<N1+N2; i++) {
         if (List1 == NULL) {
@@ -86,13 +85,12 @@ void sortDoubleList(Node *List1, int N1, Node *List2, int N2, Node *result) {
 
 void printList(Node *head, int N) {
     printf("MERGED ");
-    if (head == NULL) {
+    if (N == 0) {
         printf("EMPTY");
     }
 
     for (int i=0; i<N; i++) {
         if (head == NULL) {
-            printf("null\n");
         }
         printf("%d ", head->data);
         head = head->next;
@@ -100,7 +98,7 @@ void printList(Node *head, int N) {
 }
 
 int main() {
-    int N1, N2;
+    int N1, N2, NResult;
     Node *List1 = malloc(sizeof(Node));
     List1->next = NULL;
     Node *List2 = malloc(sizeof(Node));
@@ -114,7 +112,7 @@ int main() {
     sortList(List1, N1);
     sortList(List2, N2);
 
-    sortDoubleList(List1, N1, List2, N2, Result);
+    sortDoubleList(List1, N1, List2, N2, Result, &NResult);
     printList(Result, N1+N2);
 
     return 0;
